@@ -1,0 +1,20 @@
+[project]
+name = "dossier-git-m1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "SOGOYOU", email = "ines.sogoyou@etu.univ-tours.fr" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "pyfiglet>=1.0.4",
+    "rich>=15.0.0",
+]
+
+[project.scripts]
+dossier-git-m1 = "dossier_git_m1:main"
+
+[build-system]
+requires = ["uv_build>=0.12.12,<0.13.0"]
+build-backend = "uv_build"
