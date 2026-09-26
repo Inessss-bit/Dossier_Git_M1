@@ -1,26 +1,20 @@
 from random import choice
 
+from pyfiglet import figlet_format
 from rich import print
 from rich.panel import Panel
-from rich_pyfiglet import RichFiglet
 
 with open("citations.txt", "r", encoding="utf-8") as f:
-    citations = f.readlines()
+    citations = [line.strip() for line in f if line.strip()]
 
-citations = [c.strip() for c in citations]
-citation = choice(citations)
+citation_texte, auteur = choice(citations).rsplit(" - ", 1)
 
-rich_fig = RichFiglet(
-    "Citation du jour",
-    font="ansi_shadow",
-    colors=["#ff0000", "bright_blue"],
-)
-
-print(rich_fig)
+print(figlet_format("Citation du jour"))
 print(
     Panel(
-        f"[italic gold1]« {citation} »[/italic gold1]",
+        f"[italic gold1]{citation_texte}[/italic gold1]",
         border_style="gold1",
+        title=auteur,
         expand=False,
     )
 )
